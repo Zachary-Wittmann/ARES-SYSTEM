@@ -1,0 +1,255 @@
+comment on column version.version is 'Version number of the data'
+
+
+comment on column weather.wx1 is 'Precipitation'
+comment on column weather.wx2 is 'Cloudiness'
+comment on column weather.wx3 is 'Temperature'
+comment on column weather.wx4 is '. Season. For Northern Hemisphere. - Spring: Mar, Apr, May - Summer: Jun, Jul, Aug - Fall: Sep, Oct, Nov - Winter: Dec, Jan, Feb. For Southern Hemisphere. - Fall: Mar, Apr, May - Winter: Jun, Jul, Aug - Spring: Sep, Oct, Nov - Summer: Dec, Jan, Feb. '
+comment on column weather.wx5 is 'Climate (temperate, desert, tropical)'
+
+
+comment on table battle_dyads is '
+The actor dyads associated with each battle. The members of the dyads are the actors in the ``battle_actors`` table.
+'
+comment on column battle_dyads.attacker is 'Attacking actor.'
+comment on column battle_dyads.defender is 'Defending actor.'
+comment on column battle_dyads.wt is 'Weight to assign dyad: :math:`\frac{1}{\text{number of dyads}}`. '
+comment on column battle_dyads.dyad is 'Undirected dyad name. The dyad name consists of the names of the actors, ordered lexigraphically, and separated by a "|".'
+comment on column battle_dyads.direction is 'Equal to "1" if the first actor listed in the dyad is the attacker, and "-1" if the first actor in the dyad is the defender.'
+comment on column battle_dyads.primary is 'True if the dyad is the dyad consisting of the actors listed first in the ``battles.actors`` column. Filter on this if only one dyad needs to be used per battle, and the weights.'
+
+
+comment on table battle_durations is '
+Battle start and end times and durations.
+The data in this table are derived from ``active_time_periods``.
+'
+comment on column battle_durations.isqno is 'battle sequence (line or serial) number'
+comment on column battle_durations.datetime_min is 'Battle start time (minimum)'
+comment on column battle_durations.datetime_max is 'Battle end time (minimum)'
+comment on column battle_durations.datetime is '. Battle date and time (mid-point). This is simply the midpoint of ``datetime_min`` and ``datetime_max``. '
+comment on column battle_durations.duration1 is 'Battle duration (in days) calculated from ``datetime_min`` and ``datetime_max``.'
+comment on column battle_durations.duration2 is 'Battle duration (in days) calculated using durations in ``active_time_periods``.'
+
+
+comment on table commanders is 'CDB90 battles' commanders'
+comment on column commanders.isqno is 'battle sequence number'
+comment on column commanders.attacker is 'Attacker or defender in the battle'
+comment on column commanders.actors is 'Actor(s), state or nonstate, of the belligerent.  If more than one actor, actors are separated by " & ".'
+comment on column commanders.commanders is 'Commander's name.'
+comment on column commanders.uri is 'URL of the commander's article in Wikipedia (if any). This column is incomplete.'
+
+
+comment on table front_widths is 'Widths of fronts'
+comment on column front_widths.front_number is 'Front observation number. "1" is the front at the start of the battle.'
+comment on column front_widths.wofa is 'Width of attacker's front (in km)'
+comment on column front_widths.wofd is 'Width of defenders's front (in km)'
+comment on column front_widths.time_min is 'Start time of front (min)'
+comment on column front_widths.time_max is 'Start time of front (max)'
+
+
+comment on column battles.isqno is 'battle sequence (line or serial) number'
+comment on column battles.war is 'war in which battle/engagement was fought'
+comment on column battles.name is 'name of battle'
+comment on column battles.locn is 'location where battle was fought'
+comment on column battles.campgn is 'campaign in which battle was fought'
+comment on column battles.postype is 'defender's posture type descriptor'
+comment on column battles.post1 is 'defender's primary defensive posture'
+comment on column battles.post2 is 'defender's secondary defensive posture'
+comment on column battles.front is 'did defender's posture change along the front?'
+comment on column battles.depth is 'did defender's posture change with depth?'
+comment on column battles.time is 'did defender's posture change over time?'
+comment on column battles.cea is 'attacker's relative combat effectiveness'
+comment on column battles.surpa is 'attacker's relative surprise advantage'
+comment on column battles.aeroa is 'attacker's relative air superority in theater'
+comment on column battles.leada is 'attacker's relative leadership advantage'
+comment on column battles.trnga is 'attacker's relative training advantage'
+comment on column battles.morala is 'attacker's relative morale advantage'
+comment on column battles.logsa is 'attacker's relative logistics advantage'
+comment on column battles.momnta is 'attacker's relative momentum advantage'
+comment on column battles.intela is 'attacker's relative intelligence advantage'
+comment on column battles.techa is 'attacker's relative technology advantage'
+comment on column battles.inita is 'attacker's relative initiative advantage'
+comment on column battles.wina is 'attacker's win/draw/lose'
+comment on column battles.kmda is 'distance attacker advanced/retreated, in kilometers.'
+comment on column battles.crit is 'criterion for assigning wina'
+comment on column battles.quala is 'degree of influence of force quality'
+comment on column battles.resa is 'degree of influence of reserves'
+comment on column battles.mobila is 'degreee of influence of mobility'
+comment on column battles.aira is 'degree of influence of air superiority'
+comment on column battles.fprepa is 'degree of influence of weather'
+comment on column battles.wxa is 'degree of influence of terrain'
+comment on column battles.terra is 'degree of influence of terrain'
+comment on column battles.leadaa is 'degree of influence of leadership'
+comment on column battles.plana is 'degree of influence of planning'
+comment on column battles.surpaa is 'degree of influence of surprise'
+comment on column battles.mana is 'degree of influence of manueverability'
+comment on column battles.logsaa is 'degree of influence of logistics'
+comment on column battles.fortsa is 'degree of influence of fortifications'
+comment on column battles.deepa is 'degree of influence of depth of position'
+comment on column battles.is_hero is '. Battle from original HERO (1984) data; if false, then from the LFW Management Associates, Inc. Report "Independent Review/Reassessment of Anomalous Data (IR/RAD)," 22 June 1987.  CDB90 combined the 600 battles from HERO (1984) with an additional 60 battles from the LWF (1987). '
+comment on column battles.war2 is '. War name as indicated in HERO (1984) data For battles 600-660, they are assigned to the wars in the HERO 1984, or use the cdb90 war. '
+comment on column battles.war3 is '. War, aggregating WWI, WWI, Napoleonic Wars, and the Arab-Israeli 1967 and 1973 wars. '
+comment on column battles.cow_warno is 'Correlates of War (COW) war number of the war in which the battle occured.'
+comment on column battles.cow_warname is 'Correlates of War (COW) war name of the war in which the battle occured.'
+comment on column battles.war4 is '. New war classification. Follows the wars in COW for battles after 1816, and the Wikipedia classification of wars for battles prior to that. Names are in the style of COW wars. '
+comment on column battles.war4_theater is 'War theater. Only used for the larger wars.'
+comment on column battles.dbpedia is '. URI for associated `dbpedia <http://dbpedia.org>`__ resource. These are easy to find for battles in the wars prior to WWI. It was harder to find these for WWI and later wars, and especially for the Arab-Israeli wars. '
+comment on column battles.war_initiator is 'Was attacker in the battle on the side of the war initiator. This uses the COW war initiator coding for battles in COW wars, and the author's coding for battles not in COW wars. '
+comment on column battles.parent is '. ``isqno`` of a parent battle in the data. If not null, then the observation is a duplicated battle. '
+
+
+comment on table battle_actors is '
+The actors associated with belligerents in each battle. Each side of a battle (belligerent) can include forces from one or more actors, which can be states or non-states. This table lists those actors. The names of the actors  don't correspond to any particular list of state or non-state actors since no list that I am aware of goes back to the 17th century. However, an effort is made to use the COW names of states for state actors in battles after 1816.
+'
+comment on column battle_actors.attacker is 'Was actor on the attacking side?'
+comment on column battle_actors.n is 'Number of actor, for battle/belligerent combinations.'
+comment on column battle_actors.actor is 'Name of actor'
+
+
+comment on table belligerents is 'CDB90 battles' belligerents (attacker, defender)'
+comment on column belligerents.isqno is 'battle sequence number'
+comment on column belligerents.nam is 'designation of the forces'
+comment on column belligerents.co is 'commanders'
+comment on column belligerents.str is 'total personnel strength'
+comment on column belligerents.code is 'indicates interpretation of total personnel strength'
+comment on column belligerents.intst is 'initial personnel strength'
+comment on column belligerents.rerp is 'personnel reinf/repl during battle'
+comment on column belligerents.cas is 'battle casualties'
+comment on column belligerents.finst is 'personnel strength at battle's end'
+comment on column belligerents.cav is 'horse cavalry strength'
+comment on column belligerents.tank is 'total number of tanks'
+comment on column belligerents.lt is 'number of light tanks'
+comment on column belligerents.mbt is 'number of main battle tanks'
+comment on column belligerents.arty is 'number of artillery tubes'
+comment on column belligerents.fly is 'number of close air support sorties'
+comment on column belligerents.ctank is 'armor losses'
+comment on column belligerents.carty is 'artillery losses'
+comment on column belligerents.cfly is 'close air support aircraft losses'
+comment on column belligerents.pri1 is 'primary tactical scheme, part 1'
+comment on column belligerents.pri2 is 'primary tactical scheme, part 2'
+comment on column belligerents.pri3 is 'primary tactical scheme, part 3'
+comment on column belligerents.sec1 is 'secondary tactical scheme, part 1'
+comment on column belligerents.sec2 is 'secondary tactical scheme, part 2'
+comment on column belligerents.sec3 is 'secondary tactical scheme, part 3'
+comment on column belligerents.reso1 is 'primary resolution/outcome, part 1'
+comment on column belligerents.reso2 is 'primary resolution/outcome, part 2'
+comment on column belligerents.reso3 is 'primary resolution/outcome, part 3'
+comment on column belligerents.strpl is 'strength error, plus percent'
+comment on column belligerents.strmi is 'strength error, minus percent'
+comment on column belligerents.caspl is 'casualty error, plus percent'
+comment on column belligerents.casmi is 'casualty error, minus percent'
+comment on column belligerents.ach is 'mission accomplishment score; on scale of 1 to 10, 1=low'
+comment on column belligerents.attacker is 'Attacker or defender in the battle'
+comment on column belligerents.actors is 'Actor(s), state or nonstate, of the belligerent.  If more than one actor, actors are separated by " & ".'
+
+
+comment on table active_periods is 'Start and end times of active time periods of the battle'
+comment on column active_periods.isqno is 'battle sequence number'
+comment on column active_periods.atp_number is 'Active time period number'
+comment on column active_periods.start_time_min is 'Active time period start time (min)'
+comment on column active_periods.start_time_max is 'Active time period start time (max)'
+comment on column active_periods.end_time_min is 'Active time period end time (min)'
+comment on column active_periods.end_time_max is 'Active time period end time (max)'
+comment on column active_periods.duration_min is 'Active time period duration (min)'
+comment on column active_periods.duration_max is 'Active time period duration (max)'
+comment on column active_periods.duration_only is 'Duration given, but start and end times are unknown. For some battles CDB90 indicates an exact duration without indicating the hours and minutes of the start and end times. If this variable is true, then the `duration_*` will not be a function of `start_time_*` and `end_time_*`.'
+
+
+comment on table terrain is 'CDB90 battles' local terrain'
+comment on column terrain.isqno is 'battle sequence number'
+comment on column terrain.terrano is 'local terrain description number'
+comment on column terrain.terra1 is 'Terrain description: rugged, rolling, flat'
+comment on column terrain.terra2 is 'Terrain description: wooded, mixed, bare, desert'
+comment on column terrain.terra3 is 'Terrain description: urban, marsh, dunes'
+
+
+comment on table enum_codead is 'Interpretation of total personnel strength in ``belligerents.code``.'
+comment on column enum_codead.value is 'variable value'
+comment on column enum_codead.description is 'description of the value'
+
+
+comment on table enum_aeroa is 'Relative air superiority codes used in ``battles.aeroa``.'
+comment on column enum_aeroa.value is 'variable value'
+comment on column enum_aeroa.description is 'description of the value'
+
+
+comment on table enum_pri is 'Tactical scheme codes used in ``belligerents.pri[1-3]``.'
+comment on column enum_pri.value is 'variable value'
+comment on column enum_pri.description is 'description of the value'
+
+
+comment on table enum_wx1 is 'Weather codes used in ``weather.wx1``'
+comment on column enum_wx1.value is 'variable value'
+comment on column enum_wx1.description is 'description of the value'
+
+
+comment on table enum_wx2 is 'Weather codes used in ``weather.wx2``'
+comment on column enum_wx2.value is 'variable value'
+comment on column enum_wx2.description is 'description of the value'
+
+
+comment on table enum_wx3 is 'Weather codes used in ``weather.wx3``'
+comment on column enum_wx3.value is 'variable value'
+comment on column enum_wx3.description is 'description of the value'
+
+
+comment on table enum_wx4 is 'Weather codes used in ``weather.wx4``'
+comment on column enum_wx4.value is 'variable value'
+comment on column enum_wx4.description is 'description of the value'
+
+
+comment on table enum_wx5 is 'Weather codes used in ``weather.wx5``'
+comment on column enum_wx5.value is 'variable value'
+comment on column enum_wx5.description is 'description of the value'
+
+
+comment on table enum_terra1 is 'Terrain description (hilliness) in ``terrain.terra1``.'
+comment on column enum_terra1.value is 'variable value'
+comment on column enum_terra1.description is 'description of the value'
+
+
+comment on table enum_terra2 is 'Terrain description (cover) in ``terrain.terra2``.'
+comment on column enum_terra2.value is 'variable value'
+comment on column enum_terra2.description is 'description of the value'
+
+
+comment on table enum_terra3 is 'Terrain description in ``terrain.terra3``'
+comment on column enum_terra3.value is 'variable value'
+comment on column enum_terra3.description is 'description of the value'
+
+
+comment on table enum_postype is 'Defender's defense posture type in ``battles.postype``.'
+comment on column enum_postype.value is 'variable value'
+comment on column enum_postype.description is 'description of the value'
+
+
+comment on table enum_surpa is 'Surprise advantage codes used in ``battles.surpa``.'
+comment on column enum_surpa.value is 'variable value'
+comment on column enum_surpa.description is 'description of the value'
+
+
+comment on table enum_crit is 'Code for criteria for assigning battle victory (``battles.crit``).'
+comment on column enum_crit.value is 'variable value'
+comment on column enum_crit.description is 'description of the value'
+
+
+comment on table enum_cea is 'Leader advantage codes used in ``battles.cea``.'
+comment on column enum_cea.value is 'variable value'
+comment on column enum_cea.description is 'description of the value'
+
+
+comment on table enum_wina is 'Win / lose / draw codes used in ``battles.wina``.'
+comment on column enum_wina.value is 'variable value'
+comment on column enum_wina.description is 'description of the value'
+
+
+comment on table enum_post is 'Defender's defense posture type in ``battles.post[12]``.'
+comment on column enum_post.value is 'variable value'
+comment on column enum_post.description is 'description of the value'
+
+
+comment on table enum_reso is 'Primary resolution / outcome comes used in ``belligerents.reso[123]``.'
+comment on column enum_reso.value is 'variable value'
+comment on column enum_reso.description is 'description of the value'
+
+
