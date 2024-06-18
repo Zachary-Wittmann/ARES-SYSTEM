@@ -3,6 +3,16 @@
 The **A**ssessment of **R**etrospective **E**ngagement **S**cenarios or ARES System is a work in progress that aims to analyze prior engagements throughout different wars in history
 and try to find patterns between the outcomes of those engagements and the factors that composed the battle.
 
+
+## Table of Contents
+
+1. [Dataset Information](#dataset-information)
+2. [Dataset Overview](#dataset-overview)
+3. [Project Contents](#project-contents)
+4. [Sample Datasets](#sample-datasets)
+5. [Analyses](#analyses)
+6. [Conclusion](#conclusion)
+
 ### Dataset Information
 Bilogur, A. (2017, September). Historical Military Battles, Version 1.
 Retrieved May, 17<sup>th</sup> 2024 from https://www.kaggle.com/datasets/residentmario/database-of-battles/version/1.
@@ -32,12 +42,16 @@ __*weather.csv*__
 ***
 
 ### Project Contents
-__*The main folder contains 3 folders.*__
 
-  - Folders analysisOne and analysisTwo contain the **python scripts** along with the **Plots** for the corresponding analysis.
-  - Folder **[data](data)** contains all the .csv files utilized within ARES.
-
-  ***
+| Filename | Type | Description | 
+| --------------- | --------------- | --------------- |
+| analysisOne | 🗂️ | Contains the .py file and plots associated with Analysis One. |
+| analysisTwo | 🗂️ | Contains the .py file and plots associated with Analysis Two. |
+| data | 🗂️ | Contains all the .csv files utilized within ARES. |
+| README | .md | All of the text that you are currently reading. |
+| dataDetailer | .py | Code to provide detailed information on the .csv files in data to create details.txt.|
+| datapackage | .json | Code to be utilized with dataDetailer to create details.txt.|
+| details | .txt | Text file that provides in depth information about the .csv files in data. |
 
 # Analyses
 ### **Analysis 1** (Accuracy: 0.840 +/-0.024) <p align="right">[analysisOne.py](analysisOne/analysisOne.py)&emsp;[plots](analysisOne/plots)</p>
