@@ -8,8 +8,8 @@ and try to find patterns between the outcomes of those engagements and the facto
 
 1. [Dataset Information](#dataset-information)
 2. [Dataset Overview](#dataset-overview)
-3. [Project Contents](#project-contents)
-4. [Sample Datasets](#sample-datasets)
+3. [Sample Datasets](#sample-datasets)
+4. [Project Contents](#project-contents)
 5. [Analyses](#analyses)
 6. [Conclusion](#conclusion)
 
